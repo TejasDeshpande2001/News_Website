@@ -2,15 +2,15 @@ let currentQuery = "India";
 let currentPage = 1;
 
 const fetchNews = async (page, q) => {
-  try {
-    document.querySelector(".spinner-border").style.display = "block"; // Show spinner
+ 
+    // document.querySelector(".spinner-border").style.display = "block"; // Show spinner
     console.log(`Fetching news for ${q}, page no ${page}...`);
     const url = `https://newsapi.org/v2/everything?q=${q}&from=2024-08-21&pageSize=20&language=en&page=${page}&sortBy=popularity&apiKey=8063bf03b3394784bad4d7037018d2fe`;
 
     const response = await fetch(url);
     const data = await response.json();
 
-    document.querySelector(".spinner-border").style.display = "none"; // Hide spinner
+    // document.querySelector(".spinner-border").style.display = "none"; // Hide spinner
 
     if (data.status === "error") {
       alert("An error occurred while fetching news. Please try again later.");
@@ -35,11 +35,7 @@ const fetchNews = async (page, q) => {
     }
 
     document.querySelector(".content").innerHTML = content;
-  } catch (error) {
-    document.querySelector(".spinner-border").style.display = "none"; // Hide spinner
-    alert("An error occurred while fetching news. Please check your network connection and try again.");
-    console.error("Error fetching news:", error);
-  }
+  
 };
 
 fetchNews(1, currentQuery);
