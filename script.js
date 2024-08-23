@@ -12,10 +12,10 @@ const fetchNews = async (page, q) => {
 
     // document.querySelector(".spinner-border").style.display = "none"; // Hide spinner
 
-    if (data.status === "error") {
-      alert("An error occurred while fetching news. Please try again later.");
-      return;
-    }
+    // if (data.status === "error") {
+    //   alert("An error occurred while fetching news. Please try again later.");
+    //   return;
+    // }
 
     document.getElementById("resultCount").textContent = data.totalResults;
 
